@@ -40,9 +40,10 @@ java {
 }
 
 
+jibDockerBuild.dependsOn("build")
 
 jib {
     to {
-        image = "gcr.io/myapp/jib-image"
+        image = "circolonerd/micronaut-sample-service:v4"
     }
 }

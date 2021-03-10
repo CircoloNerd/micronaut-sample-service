@@ -20,3 +20,7 @@
 
 - [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
 
+
+
+create user: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+dashboard: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/

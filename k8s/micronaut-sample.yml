@@ -1,19 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: "demo"
+  name: "micronaut-sample"
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: "demo"
+      app: "micronaut-sample"
   template:
     metadata:
       labels:
-        app: "demo"
+        app: "micronaut-sample"
     spec:
       containers:
-        - name: "demo"
-          image: "gcr.io/demo/jib-image"
+        - name: "micronaut-sample"
+          image: "circolonerd/micronaut-sample-service:v4"
+          imagePullPolicy: Always
           ports:
             - name: http
               containerPort: 8080
@@ -34,11 +36,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: "demo"
+  name: "micronaut-sample-service"
 spec:
   selector:
-    app: "demo"
-  type: LoadBalancer
+    app: "micronaut-sample"
+  type: NodePort
   ports:
-    - protocol: "TCP"
-      port: 8080
+    - port: 8080
+      targetPort: 8080
